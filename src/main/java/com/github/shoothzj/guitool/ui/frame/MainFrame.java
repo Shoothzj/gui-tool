@@ -33,13 +33,13 @@ public class MainFrame extends BaseVerticalFrame {
     @Override
     protected void initView() {
         parseCaButton = new BaseButton();
-        parseCaButton.setText("解析证书文件");
+        parseCaButton.setText("parse cert file");
         generateSelfSignedButton = new BaseButton();
-        generateSelfSignedButton.setText("生成一套自签名证书");
+        generateSelfSignedButton.setText("generate self signed cert");
         generateFullCertButton = new BaseButton();
-        generateFullCertButton.setText("生成一套证书");
+        generateFullCertButton.setText("generate signed cert");
         judgeVerifyButton = new BaseButton();
-        judgeVerifyButton.setText("校验证书的配套关系");
+        judgeVerifyButton.setText("cert checker");
     }
 
     @Override
@@ -98,6 +98,13 @@ public class MainFrame extends BaseVerticalFrame {
                 CaDTO clientCa = OpensslTool.signCa("client.cer", rootKeyDTO, rootCaDTO, clientCsrDTO, true);
 
                 OpensslTool.mixPriPub("client.p12", clientCa, clientKeyDTO, "client12pwd");
+            }
+        });
+        judgeVerifyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CheckerFrame checkerFrame = new CheckerFrame();
+                checkerFrame.showFrame();
             }
         });
     }

@@ -4,6 +4,7 @@ import com.github.shoothzj.guitool.UiTool;
 import com.github.shoothzj.guitool.tool.FileTool;
 import com.github.shoothzj.guitool.ui.base.BaseButton;
 import com.github.shoothzj.guitool.ui.base.BaseFileChooser;
+import com.github.shoothzj.guitool.ui.base.BaseTextArea;
 import com.github.shoothzj.guitool.ui.base.BaseVerticalFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,8 @@ public class CaChooseFrame extends BaseVerticalFrame {
 
     private BaseButton uploadButton;
 
+    private BaseTextArea baseTextArea;
+
     public CaChooseFrame() {
 
     }
@@ -32,11 +35,13 @@ public class CaChooseFrame extends BaseVerticalFrame {
     protected void initView() {
         uploadButton = new BaseButton();
         uploadButton.setText("上传文件");
+        baseTextArea = new BaseTextArea();
     }
 
     @Override
     protected void addView() {
         add(uploadButton);
+        add(baseTextArea);
     }
 
     @Override
