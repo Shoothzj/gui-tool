@@ -17,32 +17,38 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.github.shoothzj.guitool.Boot</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <properties>
-        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
-        <activiti.version>6.0.0</activiti.version>
-
-        <netty.version>5.0.0.Alpha2</netty.version>
         <commonlang.version>3.8.1</commonlang.version>
 
         <guava.version>27.0.1-jre</guava.version>
-        <guava.retry.version>2.0.0</guava.retry.version>
-
-        <http.client.version>5.0-beta2</http.client.version>
-        <http.sync.client.version>4.5.6</http.sync.client.version>
-        <http.async.client.version>4.1.4</http.async.client.version>
-
-        <redis.version>2.9.0</redis.version>
-
-        <jackson.version>2.9.7</jackson.version>
-        <gson.version>2.8.5</gson.version>
-
         <slf4j.version>1.7.22</slf4j.version>
         <log4j.version>2.9.0</log4j.version>
-
-        <java.tool.version>7.0.0.1</java.tool.version>
 
         <!-- test-->
         <junit.version>4.12</junit.version>
@@ -50,24 +56,11 @@
     </properties>
 
         <dependencies>
-            <!-- activiti -->
+            <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
             <dependency>
-                <groupId>org.activiti</groupId>
-                <artifactId>activiti-spring-boot-starter-basic</artifactId>
-                <version>${activiti.version}</version>
-            </dependency>
-
-            <!-- spring boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.boot.version}</version>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -77,61 +70,12 @@
                 <version>${guava.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.rholder</groupId>
-                <artifactId>guava-retrying</artifactId>
-                <version>${guava.retry.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>${redis.version}</version>
-            </dependency>
-
 
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commonlang.version}</version>
-            </dependency>
-
-            <!-- http client-->
-            <dependency>
-                <groupId>org.apache.httpcomponents.client5</groupId>
-                <artifactId>httpclient5</artifactId>
-                <version>${http.client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${http.sync.client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpasyncclient</artifactId>
-                <version>${http.async.client.version}</version>
-            </dependency>
-
-            <!-- netty -->
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
-
-            <!-- jackson -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
             </dependency>
 
             <!-- log4j -->
@@ -179,5 +123,6 @@
                 <version>${mockito.version}</version>
             </dependency>
         </dependencies>
+
 
 </project>
