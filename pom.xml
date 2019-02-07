@@ -4,7 +4,7 @@
 
     <groupId>com.github.shoothzj</groupId>
     <artifactId>gui-tool</artifactId>
-    <version>1.5</version>
+    <version>1.6-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -187,7 +187,7 @@
         <connection>scm:git:git@github.com:Shoothzj/gui-tool.git</connection>
         <developerConnection>scm:git:git@github.com:Shoothzj/gui-tool.git</developerConnection>
         <url>git@github.com:Shoothzj/gui-tool.git</url>
-      <tag>file</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
