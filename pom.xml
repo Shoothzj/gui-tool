@@ -4,7 +4,7 @@
 
     <groupId>com.github.shoothzj</groupId>
     <artifactId>gui-tool</artifactId>
-    <version>1.5</version>
+    <version>1.7</version>
     <build>
         <plugins>
             <plugin>
